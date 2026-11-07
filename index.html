@@ -315,7 +315,7 @@ function renderTable(r){
   h+='</table><small>'+r.values.length+' строк</small>';return h;
 }
 function norm(rows,ordered){
-  const out=rows.map(r=>JSON.stringify(r.map(v=>typeof v==='number'?Math.round(v*100)/100:v)));
+  const out=rows.map(r=>JSON.stringify(r.map(v=>typeof v==='number'?Math.round(v*100)/100:v).map(String).sort()));
   return ordered?out:out.slice().sort();
 }
 function key(d,i){return 'sqltr_'+d+'_'+i;}
